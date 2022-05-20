@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>LocoFoto</title>
+</head>
+<body>
+    <div class="topBanner">
+        <a href = "/"> <img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo"> </a>
+        <div class = "nav">
+         <a href="/"><button class="buttonLogin" type="submit"> Home </button></a>
+       </div>
+       </div>
+        <div class ="header">
+            <h1> Log in</h1>
+        </div>
+<div class = "loginDiv">
+<p>Please Input your details below</p>
+<form class = "form" action="/profile" method="post" enctype="multipart/form-data">
+    <div>Username: <input type="text" name="username" pattern="[^'\x22]+" title="Invalid input"></div>
+    <div>Password: <input type="password" name="password" pattern="[^'\x22]+" title="Invalid input"></div>
+    <div><button class="buttonLogin" type="submit"> Log in </button></div>
+</form>
+<form class = "form" action="/SignUp" method="get" enctype="multipart/form-data">
+<p>Don't have an account? Click below to sign up.</p><button class="buttonLogin" type="submit"> Sign up </button>
+</form>
+</div>
+</body>
+</html>
+

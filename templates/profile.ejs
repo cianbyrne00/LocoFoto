@@ -1,0 +1,27 @@
+<html>
+    <link rel="stylesheet" href="style.css">
+    <head>
+        <title><%= username %></title>
+    </head>
+<body>
+    <div class="topBanner">
+        <a href = "/"> <img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo"> </a>
+        <div class = "nav">
+            <a href = "/"> <button class="buttonLogin" type="submit"> Home </button></a> 
+            <a href = "/upload"> <button class="buttonLogin" type="submit"> Upload an Image </button></a>
+            <a href="alter"><button class="buttonLogin" type="submit"> Edit Profile Details </button> </a> 
+            <a href="logout"><button class="buttonLogin" type="submit"> Log Out! </button> </a> 
+            </div>
+    </div>
+    <div class = "header">
+    <h1>Welcome  to <%= users[0]["firstname"] %> <%= users[0]["lastname"] %>'s profile page!</h1>
+        <p> <b>All images uploaded by @<%= username %> are shown below</b></p>
+            <% for (var i in images.reverse(i)) { %>
+                    <div class = "post">
+                    <a href="/<%= images[i]["imageLink"] %>"><img class="homeImage" src = "/uploadedFiles/<%= images[i]["imageLink"] %>"></a>
+                    <p id="profileText" class="homeText"> Image Caption: <%= images[i]["caption"] %>. Date: <%= images[i]["date"] %>  <br> </p>
+                </div>
+            <% } %>
+        </div>
+    </div>      
+</html>

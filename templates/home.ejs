@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>LocoFoto</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="topBanner">
+         <img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo"> 
+     <div class = "nav">
+        <a href="<%=data %>">
+          <button class="buttonLogin" type="submit"> <%=name %> </button>
+       </a>
+    </div>
+    </div>
+    <div class ="header">
+       <h1> Home Screen </h1>
+   </div>
+    <% for (var i in images.reverse(i)) { %>
+        <% var imageID = images[i]["imageID"] %>
+        <% var likes = images[i].likes  %>
+        <div class = "post">
+         <a href="/<%= images[i]["imageLink"] %>"><img class="homeImage" src = "/uploadedFiles/<%= images[i]["imageLink"] %>"></a>
+            <p class="smallText">Click image to view details and comments.</p>
+            <form action="/comment" method="post" enctype="multipart/form-data"> 
+            <input type="text" class = "textArea" aria-label ="Add a comment" placeholder = "add a comment" name="comment" id="comment" rows="1" tabindex="4" pattern="[^'\x22]+" title="Invalid input" required="required" required="required"></input>
+        <div>
+        <button onclick = "updateComments()" name = "imageID" value = "<%= images[i]["imageLink"]%>" class="commentButton" type="submit"> Post Comment </button>
+    </div>
+    </form>  
+            <button onclick = "updateLikes('<%= images[i]["imageLink"]%>')" name="imageID" value = "<%= images[i]["imageLink"]%>" id="like" class="likeButton" type="submit"> Like Post </button>
+            <p class="homeText"> Image Caption: <%= images[i]["caption"] %> <br> Image uploaded by @<%= images[i]["username"] %> on <%= images[i]["date"] %>  <br> <span id = "<%=images[i]["imageLink"]%>" class="likeText"> <%=likes %> </span> Likes </p>
+    </div>
+    </div>
+    <% } %>
+    
+    </body>
+    </html>

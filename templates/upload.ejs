@@ -1,0 +1,26 @@
+<html>
+    <head>
+    <link rel="stylesheet" href="style.css">
+    <title>LocoFoto</title>
+</head>
+<body>
+<div class="topBanner">
+<img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo">
+<div class="nav">
+    <a href = "/"> <button class="buttonLogin" type="submit"> Home </button></a>  
+    <a href="logout"><button class="buttonLogin" type="submit"> Log Out! </button> </a>
+</div>
+</div>
+<div class ="header">
+    <h1> Hello <%= username %>, Upload an Image below.</h1>
+</div>
+
+<form class="form" action="/upload" method="post" enctype="multipart/form-data">
+    <div class = "loginDiv">
+    <p>Image Caption: <input type="text" name="caption" pattern="[^'\x22]+" title="Invalid input" required="required" ></p> 
+    <input class="button" type="file" name="myimage">
+    <input class="button" type="submit">
+</div>
+</form>
+
+</html>

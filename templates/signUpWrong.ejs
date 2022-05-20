@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>LocoFoto</title>
+</head>
+<body>
+    <div class="topBanner">  
+        <img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo">
+        <div class = "nav">
+         <a href="/"><button class="buttonLogin" type="submit"> Home </button></a>
+       </div>
+       </div>
+       <div class ="header">
+        <div class = "header">
+            <h1>Register!</h1>
+        </div>
+    </div>
+<div class = "loginDiv">
+<p>Please enter a account details below</p>
+<form class = "form" action="/Register" method="post" enctype="multipart/form-data">
+    <div>First Name: <input type="text" name="firstName" pattern="[^'\x22]+" title="Invalid input" required="required"></div>
+    <div>Last Name: <input type="text" name="lastName" pattern="[^'\x22]+" title="Invalid input" required="required"></div>
+    <div>Username: <input type="text" name="username" pattern="[^'\x22]+" title="Invalid input" required="required"></div>
+    <div>Password: <input type="password" name="password" pattern="[^'\x22]+" title="Invalid input" required="required"></div>
+    <div><button class="buttonLogin" type="submit"> Sign up! </button></div>
+    <p class="wrong"> Username already taken, please try again!</p>
+</form>
+</div>
+</body>
+</html>
+

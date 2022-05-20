@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="style.css">
+<head>
+    <meta charset="UTF-8">
+    <title>LocoFoto</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js" async></script>
+    <script
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous">
+</script>
+    <script src="index.js"></script>
+</head>
+<body>
+    <div class="topBanner">
+      <a href = "/"> <img class="websiteIcon" src = "/websiteIcons/logo.png" alt="logo"> </a>
+     <div class = "nav">
+                <a href = "/"> <button class="buttonLogin" type="submit"> Home </button></a> 
+                <a href="<%=data %>">  <button class="buttonLogin" type="submit"> <%=name %> </button> </a>
+       </a>
+    </div>
+    </div>
+    <div class ="header">
+   </div>
+    <div class = "imageView">   
+      <img class = "displayedImage" src="/uploadedFiles/<%=imageLink %>">
+      <button onclick = "updateLikes('<%= imageLink%>')" name="imageID" value = "/<%=imageLink %>" id="likeViewer" class="likeButton" type="submit"> Like Post </button>
+      <p class="imageDetails"> Image Caption: <%= imageDetails[0]["caption"] %> 
+      <br>Uploaded by @<%= imageDetails[0]["username"] %> on <%= imageDetails[0]["date"] %>. <br>
+      This image has <span id = "<%= imageLink%>" class="likeText"> <%=likes %> </span> likes.
+    </p>
+    </div>
+      <div class = "commentSection">
+        <h2> Image Comments:</h2>
+        <form action="/comment" method="post" enctype="multipart/form-data"> 
+          <input type= "text" class = "textArea" aria-label ="Add a comment" placeholder = "add a comment" name="comment" id="comment" rows="1" tabindex="4" pattern="[^'\x22]+" title="Invalid input" required="required"  required="required"></input>
+          <div>
+          <button onclick = "updateComments()" name = "imageID" value = "<%= imageDetails[0]["imageLink"]%>" class="commentButtonViewer" type="submit"> Post Comment </button>
+          </div>
+      </form>
+      <% for (var i in comments) { %>
+        <p class ="imageComments"> <b><%= comments[i]["username"] %></b>: <%= comments[i]["comments"] %> </p>
+        <% } %>
+    </div>
+ </div>
+</body>
+</html>
